@@ -1,0 +1,25 @@
+{
+  "name": "api-rest-nodejs",
+  "version": "1.0.0",
+  "description": "my first api rest",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emillyalmeida/api-rest-nodejs.git"
+  },
+  "author": "emilly almeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emillyalmeida/api-rest-nodejs/issues"
+  },
+  "homepage": "https://github.com/Emillyalmeida/api-rest-nodejs#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.4"
+  }
+}
