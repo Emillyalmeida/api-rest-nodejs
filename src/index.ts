@@ -1,6 +1,12 @@
 import express, { Request, Response, NextFunction } from "express";
+import userRoute from "./Routes/usersRouter";
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(userRoute);
 
 app.get("/init", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).send({ foo: "bar" });
