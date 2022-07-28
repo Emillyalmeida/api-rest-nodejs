@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
 import ModelUser from "../controlers/modelUser";
+import bearerAuthMiddle from "../middlewares/bearerAuthMiddle";
 
 const userRoute = Router();
 
@@ -61,6 +62,7 @@ userRoute.put(
 
 userRoute.delete(
   "/users/:uuid",
+  bearerAuthMiddle,
   async (req: Request, res: Response<{ uuid: string }>, next: NextFunction) => {
     try {
       const id = req.params.uuid;
