@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
-import ModelUser from "../models/modelUser";
+import ModelUser from "../controlers/modelUser";
 
 const userRoute = Router();
 
