@@ -4,7 +4,7 @@ Uma crud de usuario usando NodeJs com typeScript e banco de dados PosrgreSQL, fo
 
 ## Ferramentas
 
-- NodeJs
+- Express
 - PostgresSQL
 - http-status-codes
 - jsonwebtoken
