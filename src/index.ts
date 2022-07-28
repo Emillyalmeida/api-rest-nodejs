@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { Request, Response, NextFunction } from "express";
 import errorHandler from "./middlewares/errorHandle";
 import authRoute from "./Routes/authRouter";

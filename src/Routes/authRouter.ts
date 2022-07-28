@@ -27,7 +27,11 @@ authRoute.post(
 
       const jwtPayload = { username: user.username };
       const jwtOptions = { subject: user?.uuid };
-      const secretKey = "my_secret_key";
+      const secretKey = process.env.MY_SECRET_KEY;
+
+      if (!secretKey) {
+        throw "erro interno";
+      }
 
       const token = JWT.sign(jwtPayload, secretKey, jwtOptions);
       res.status(StatusCodes.OK).json({ user: user, token: token });
