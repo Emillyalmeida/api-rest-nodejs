@@ -48,6 +48,16 @@ class ModelUser {
     const result = await db.query(query, value);
     return result;
   }
+
+  static async findBynameAndPassword(user: User): Promise<User | null> {
+    const query = `
+    SELECT uuid, username FROM aplication_users WHERE username = $1 and password = crypt($2, 'my_salt')
+    `;
+    const values = [user.username, user.password];
+    const result = await db.query<User>(query, values);
+    const [userInfo] = result.rows;
+    return userInfo || null;
+  }
 }
 
 export default ModelUser;
