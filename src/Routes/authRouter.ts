@@ -1,6 +1,7 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { StatusCodes } from "http-status-codes";
 import ModelUser from "../models/modelUser";
+import JWT from "jsonwebtoken";
 
 const authRoute = Router();
 
@@ -18,6 +19,13 @@ authRoute.post(
     if (!user) {
       return "erro invalid credential";
     }
+
+    const jwtPayload = { username: user.username };
+    const jwtOptions = { subject: user?.uuid };
+    const secretKey = "my_secret_key";
+
+    const token = JWT.sign(jwtPayload, secretKey, jwtOptions);
+    res.status(StatusCodes.OK).json({ user: user, token: token });
   }
 );
 
