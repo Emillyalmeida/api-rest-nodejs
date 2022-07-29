@@ -26,7 +26,7 @@ const bearerAuthMiddle = async (
       throw new ForbiddenError("Invalid token");
     }
 
-    const tokenPayload = JWT.verify(jwtToken, "my_secret_key");
+    const tokenPayload = JWT.verify(jwtToken, process.env.MY_SECRET_KEY);
 
     if (typeof tokenPayload !== "object" || !tokenPayload.sub) {
       throw new ForbiddenError("Invalid token");
